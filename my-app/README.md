@@ -1,8 +1,14 @@
-```
-npm install
-npm run dev
-```
+# hello world hono app
+
+## Setup
 
 ```
-npm run deploy
+bun i
+bun run dev
+```
+
+## Deploy
+
+```
+bun run deploy
 ```
