@@ -2,9 +2,9 @@ import { Hono } from 'hono'
 
 const app = new Hono()
 
-app.get('/', (c) => {
-  return c.text('Hello Hono!')
-})
+// app.get('/', (c) => {
+//   return c.text('Hello Hono!')
+// })
 
 app.get('/api/hello', (c) => {
   return c.json({
@@ -22,5 +22,23 @@ app.get('/posts/:id', (c) => {
 
 app.post('/posts', (c) => c.text('Created!', 201))
 app.delete('/posts/:id', (c) => c.text(`${c.req.param('id')} is deleted!`))
+
+const View = () => {
+  return (
+    <html>
+      <body>
+        <h1>Hello Hono!</h1>
+      </body>
+    </html>
+  )
+}
+
+app.get('/page', (c) => {
+  return c.html(<View />)
+})
+
+app.get('/', (c) => {
+  return new Response('Good morning!')
+})
 
 export default app
